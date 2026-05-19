@@ -1,0 +1,1 @@
+当前本地环境缺少 stable-baselines3/gymnasium/pyfmi；本次运行使用确定性的论文参数化 surrogate DRL 策略。若要执行严格 SAC 后端，请安装这些依赖并提供 FMU。

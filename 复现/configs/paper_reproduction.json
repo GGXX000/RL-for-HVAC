@@ -1,0 +1,89 @@
+{
+  "paper": {
+    "title": "从深度强化学习控制器提取规则，并与 ASHRAE 控制序列进行多区建筑 HVAC 系统优化管理对比分析",
+    "original_title": "Rule extraction from deep reinforcement learning controller and comparative analysis with ASHRAE control sequences for the optimal management of HVAC systems in multizone buildings",
+    "doi": "10.1016/j.apenergy.2024.125046"
+  },
+  "backend": "surrogate",
+  "asset_manifest": "data/processed/asset_manifest.json",
+  "random_seed": 46,
+  "simulation": {
+    "year": 2024,
+    "start": "2024-07-01 00:00",
+    "end": "2024-07-31 23:30",
+    "timestep_minutes": 30
+  },
+  "building": {
+    "thermal_zones": ["south", "east", "north", "west", "core"],
+    "conditioned_floor_area_m2": 511,
+    "conditioned_volume_m3": 1559,
+    "u_values_w_m2_k": {
+      "wall": 0.78,
+      "roof": 0.20,
+      "foundation": 1.85,
+      "window": 3.24
+    },
+    "cooling_setpoint_c": 24.0,
+    "comfort_band_c": [23.0, 25.0]
+  },
+  "schedule": {
+    "working_days": [0, 1, 2, 3, 4],
+    "occupancy_start_hour": 8,
+    "operation_start_hour": 6,
+    "operation_end_hour": 19
+  },
+  "drl": {
+    "algorithm": "SAC",
+    "policy": "MLP",
+    "hidden_layers": [64, 64],
+    "learning_rate": 0.0001,
+    "batch_size": 128,
+    "learning_starts": 0,
+    "episodes": 20,
+    "initial_gradient_steps": 100,
+    "later_gradient_steps": 1,
+    "action_space": {
+      "economizer_damper_position": [0.0, 1.0],
+      "chiller_valve_position": [0.0, 1.0, 0.1],
+      "supply_water_temperature_c": [4.0, 15.0]
+    },
+    "observation_names": [
+      "SAT",
+      "Vflow_air",
+      "Vflow_outdoor_air",
+      "ZATsouth",
+      "ZATeast",
+      "ZATnorth",
+      "ZATwest",
+      "ZATcore",
+      "Toutdoor_air",
+      "VAVBoxsouth_damper",
+      "VAVBoxwest_damper",
+      "VAVBoxnorth_damper",
+      "VAVBoxeast_damper",
+      "VAVBoxcore_damper",
+      "rpmsignal",
+      "Tmix",
+      "mflow_water",
+      "SWT",
+      "RWT",
+      "hour",
+      "occupancy",
+      "Tout_1h",
+      "Tout_2h",
+      "Tout_3h",
+      "Tout_4h"
+    ]
+  },
+  "rule_extraction": {
+    "swt_tree": {"max_depth": 4, "max_leaf_nodes": 7},
+    "economizer_tree": {"max_depth": 4, "max_leaf_nodes": 6},
+    "chiller_valve_tree": {"max_depth": 4, "max_leaf_nodes": 9}
+  },
+  "paper_reference_kpis": {
+    "A2006": {"electric_kwh": 1179, "zat_violation_c": 9.9, "fan_kwh": 213, "chiller_kwh": 966},
+    "G36": {"electric_kwh": 1146, "zat_violation_c": 14.8, "fan_kwh": 179, "chiller_kwh": 967},
+    "DRL": {"electric_kwh": 938, "zat_violation_c": 0.6, "fan_kwh": 71, "chiller_kwh": 867},
+    "RE": {"electric_kwh": 967, "zat_violation_c": 4.1, "fan_kwh": 73, "chiller_kwh": 894}
+  }
+}

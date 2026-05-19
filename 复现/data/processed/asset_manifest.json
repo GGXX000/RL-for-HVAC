@@ -1,0 +1,49 @@
+{
+  "created_utc": "2026-05-19T01:22:44Z",
+  "expected_building": {
+    "name": "DOE Small Office / Simple Office",
+    "thermal_zones": 5,
+    "conditioned_floor_area_m2": 511,
+    "volume_m3": 1559,
+    "u_values_w_m2_k": {
+      "wall": 0.78,
+      "roof": 0.2,
+      "ground_floor": 1.85,
+      "window": 3.24
+    }
+  },
+  "building_download": {
+    "url": "existing-file",
+    "path": "data/raw/doe_small_office_reference_building.zip",
+    "sha256": "5f11c3d90861ddcc1d6625da6ae241ffc0426f7223f19f992d7718aa2e725d65",
+    "bytes": 325295
+  },
+  "weather_download": {
+    "url": "existing-file",
+    "path": "data/raw/turin_weather_download.bin",
+    "sha256": "6af57a1a08f0d9c81af6bdc28ff48d656b78d61c4f0c3be6a12f7d7d2783e637",
+    "bytes": 428663
+  },
+  "source_idf": "data/interim/doe_small_office_reference_building/RefBldgSmallOfficeNew2004_v1.4_7.2_4A_USA_MD_BALTIMORE.idf",
+  "prepared_idf": "data/interim/doe_small_office_reference_building/RefBldgSmallOfficeNew2004_v1.4_7.2_4A_USA_MD_BALTIMORE.idf",
+  "epw": "data/processed/turin_italy.epw",
+  "july_weather_csv": "data/processed/turin_italy_july_weather.csv",
+  "epw_location": {
+    "city": "Torino-Caselle.AP",
+    "state_province": "PM",
+    "country": "ITA",
+    "source": "SRC-TMYx",
+    "wmo": "160590",
+    "latitude": 45.2025,
+    "longitude": 7.6494,
+    "time_zone": 1.0,
+    "elevation_m": 287.0
+  },
+  "simulation_period": {
+    "start_month": 7,
+    "start_day": 1,
+    "end_month": 7,
+    "end_day": 31,
+    "timestep_minutes": 30
+  }
+}

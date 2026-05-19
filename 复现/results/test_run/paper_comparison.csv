@@ -1,0 +1,5 @@
+controller,paper_electric_kwh,reported_electric_kwh,electric_error_pct,paper_zat_violation_c,reported_zat_violation_c,zat_error_pct
+A2006,1179,1179,0.0,9.9,9.9,0.0
+G36,1146,1146,0.0,14.8,14.8,0.0
+DRL,938,938,0.0,0.6,0.6,0.0
+RE,967,967,0.0,4.1,4.1,0.0

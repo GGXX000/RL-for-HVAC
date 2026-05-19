@@ -1,0 +1,10 @@
+numpy>=1.26
+pandas>=2.2
+matplotlib>=3.9
+scikit-learn>=1.5
+joblib>=1.4
+
+# 可选的严格高保真后端依赖：
+# gymnasium
+# stable-baselines3
+# pyfmi
